@@ -1,0 +1,21 @@
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+    <!-- general application log -->
+    <appender name="test" class="org.apache.log4j.FileAppender">
+        <param name="File" value="logs\\test.log" />
+        <param name="Threshold" value="INFO" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%-5p %t [%-40.40c] %x - %m%n"/>
+        </layout>
+    </appender> 
+   <logger name="com.training.springmvc.controller">
+        <level value="INFO"/>
+        <appender-ref ref="test"/>
+    </logger>
+
+    <root>
+        <level value="INFO"/>
+        <appender-ref ref="test"/>
+        <!-- no appender, output will be swallowed (I think) -->
+    </root>
+</log4j:configuration>
